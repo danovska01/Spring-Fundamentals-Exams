@@ -2,6 +2,7 @@ package com.danovska01.gira.models;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Optional;
 
 @Table(name = "tasks")
 @Entity
@@ -85,7 +86,7 @@ public class Task {
         return user;
     }
 
-    public void setUser(User user) {
+    public void setUser(Optional<User> user) {
         this.user = user;
     }
 }
