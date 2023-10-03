@@ -1,0 +1,9 @@
+
+a.nav-link.text-white.active[href="/"]:hover {
+    background-color: #5a6268;
+    border-radius: 35px;
+    transition: background-color 0.4s ease;
+
+}
+
+
