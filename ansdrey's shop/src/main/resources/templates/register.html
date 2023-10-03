@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="~{fragments/commons::head}">
+</head>
+
+<body>
+<header th:replace="~{fragments/commons::nav}">
+</header>
+<main>
+    <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Register</span></h1>
+    <hr class="hr-3"/>
+    <form class="mx-auto mb-5 text-center w-25 bg-dark p-3 rounded"
+          th:action="@{/users/register}"
+          th:method="post"
+          th:object="${userRegisterBindingModel}">
+
+        <div class="form-group">
+            <div class="label-holder textCol d-flex justify-content-center">
+                <label class="h4 mb-2 text-white" for="username">Username</label>
+            </div>
+            <input class="form-control" id="username" name="username" th:errorclass="bg-danger" th:field="*{username}"
+                   type="text"/>
+            <small class="text-danger" th:each="e : ${#fields.errors('username')}" th:text="${e}">Incorrect
+                username!</small>
+        </div>
+        <div class="form-group">
+            <div class="label-holder text-white textCol d-flex justify-content-center">
+                <label class="h4 mb-2" for="email">Email</label>
+            </div>
+            <input class="form-control" id="email" name="email" th:errorclass="bg-danger" th:field="*{email}"
+                   type="email"/>
+            <small class="text-danger" th:each="e : ${#fields.errors('email')}" th:text="${e}">Incorrect email!</small>
+        </div>
+        <div class="form-group">
+            <div class="label-holder text-white textCol d-flex justify-content-center">
+                <label class="h4 mb-2" for="budget">User budget</label>
+            </div>
+            <input class="form-control" id="budget" name="budget" th:errorclass="bg-danger" th:field="*{budget}"
+                   type="number"/>
+            <small class="text-danger" th:each="e : ${#fields.errors('budget')}" th:text="${e}">Incorrect
+                budget!</small>
+        </div>
+        <div class="form-group">
+            <div class="label-holder text-white textCol d-flex justify-content-center">
+                <label class="h4 mb-2" for="password">Password</label>
+            </div>
+            <input class="form-control" id="password" name="password" th:errorclass="bg-danger" th:field="*{password}"
+                   type="password"/>
+            <small class="text-danger" th:each="e : ${#fields.errors('password')}" th:text="${e}">Incorrect
+                pasword!</small>
+        </div>
+        <div class="form-group">
+            <div class="label-holder text-white textCol d-flex justify-content-center">
+                <label class="h4 mb-2" for="confirmPassword">Confirm Password</label>
+            </div>
+            <input class="form-control" id="confirmPassword" name="confirmPassword" type="password"/>
+
+        </div>
+        <div class="button-holder d-flex justify-content-center">
+            <button \ class="btn btn-secondary text-white mb-3" type="submit" value="Register">Register</button>
+        </div>
+    </form>
+</main>
+<footer th:replace="~{fragments/commons::footer}">
+</footer>
+</body>
+</html>
