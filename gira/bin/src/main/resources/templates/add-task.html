@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<th:block th:include="~{fragments/head}"></th:block>
+<body>
+<div class="page-container">
+    <header>
+        <nav class="navbar navbar-expand-lg ">
+      <span class="col-md-1">
+        <img src="/img/projectLogo.png" alt="Logo" width="50" height="50">
+      </span>
+            <a class="navbar-brand active col-md-1 title" href="/">Gira</a>
+            <div class="collapse navbar-collapse  d-flex justify-content-end">
+                <ul class="navbar-nav row">
+                    <li class="nav-item col-md-6">
+                        <a class="button text-nowrap" href="/tasks/add">Add Task</a>
+                    </li>
+                    <li class="nav-item col-md-5">
+                        <a class="button" href="/users/logout">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="content-wrap">
+        <h1 class="text-center mt-2"><span class="badge badge-pill badge-dark">Add Task</span></h1>
+        <hr class="hr-3 w-25 bg-white"/>
+        <form action="/tasks/add" class="mx-auto w-25 bg-blur" method="POST" th:object="${taskAddBindingModel}">
+            <div class="form-group">
+                <div class="label-holder textCol d-flex justify-content-center">
+                    <label for="name" class="h4 mb-2">Name</label>
+                </div>
+                <input class="form-control" id="name" name="name" th:errorclass="bg-danger" th:field="*{name}"
+                       type="text"/>
+
+                <small class="text-danger" th:errors="*{name}" th:if="${#fields.hasErrors('name')}">Name error
+                    message</small>
+            </div>
+            <div class="form-group">
+                <div class="label-holder textCol d-flex justify-content-center">
+                    <label for="description" class="h4 mb-2">Description</label>
+                </div>
+                <input class="form-control" id="description"
+                       name="description" th:errorclass="bg-danger" th:field="*{description}" type="text"/>
+
+                <small class="text-danger" th:errors="*{description}"
+                       th:if="${#fields.hasErrors('description')}">Description error message</small>
+            </div>
+            <div class="form-group">
+                <div class="label-holder  textCol d-flex justify-content-center">
+                    <label for="dueDate" class="h4 mb-2">Due Date</label>
+                </div>
+                <input class="form-control" id="dueDate"
+                       name="dueDate" th:errorclass="bg-danger" th:field="*{dueDate}" type="date"/>
+
+                <small class="text-danger" th:errors="*{dueDate}" th:if="${#fields.hasErrors('dueDate')}">Date error
+                    message</small>
+            </div>
+            <div class="form-group">
+                <div class="label-holder  textCol d-flex justify-content-center">
+                    <label for="classification" class="h4 mb-2">Classification</label>
+                </div>
+                <select class="form-control" id="classification"
+                        name="classification" th:errorclass="bg-danger" th:field="*{classification}" type="text">
+                    <option value="">Select Classification</option>
+                    <option th:each="c : ${classifications}"
+                            th:text="${c}" th:value="${c}">FEATURE
+                    </option>
+
+
+                </select>
+                <small class="text-danger" th:errors="*{classification}"
+                       th:if="${#fields.hasErrors('classification')}">Classification error message</small>
+            </div>
+
+            <div class="button-holder d-flex justify-content-center">
+                <button type="submit" class="button btn-warning  mb-3" value="Register">Add Task</button>
+            </div>
+        </form>
+    </main>
+    <th:block th:include="~{fragments/footer}"></th:block>
+</div>
+
+
+</body>
+</html>
