@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/commons::head"></head>
+<body>
+<div class="container-fluid">
+    <header th:replace="fragments/commons::navigation"></header>
+    <main class="mt-3">
+        <h1 class="text-center text-judge">Problem - The Rounding of Isaac</h1>
+        <hr class="hr-2 bg-judge">
+        <h3 class="text-judge my-3">Submit your code here:</h3>
+        <form th:object="${submissionAddBindingModel}" id="create-submission-form" class="form" action="/problems/submit/{id}(id = *{id})}" method="POST">
+            <div class="w-100 rounded bg-code text-code d-flex flex-column p-3">
+                <textarea class="code-line"></textarea>
+            </div>
+            <hr class="hr-2 bg-judge">
+            <div class="d-flex justify-content-center">
+                <button class="btn bg-judge font-weight-bold text-white"><h3 class="text-center pr-1 pt-1">Submit</h3></button>
+            </div>
+            <hr class="hr-2 bg-judge">
+        </form>
+    </main>
+    <footer th:replace="fragments/commons::footer"></footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/commons::head"></head>
+<body>
+<div class="container-fluid">
+    <header th:replace="fragments/commons::navigation"></header>
+    <main class="mt-3">
+        <h1 class="text-center text-judge">Problem Details - The Rounding of Isaac</h1>
+        <hr class="hr-2 bg-judge">
+        <div class="d-flex justify-content-between">
+            <h2 class="text-judge">Problem Id - 62e53d86-b36f-4fbe-9226-a33384cbd7a3</h2>
+            <h2 class="text-judge">Success Rate - 33.33 %</h2>
+        </div>
+        <hr class="hr-2 bg-judge">
+        <h3 class="text-judge text-center">Problem Submissions</h3>
+        <hr class="hr-2 bg-judge">
+        <table class="table table-hover text-judge">
+            <thead>
+            <tr class="row">
+                <th class="col-md-4" scope="col"><h5 class="text-center">Submission</h5></th>
+                <th class="col-md-3" scope="col"><h5 class="text-center">User</h5></th>
+                <th class="col-md-3" scope="col"><h5 class="text-center">Achieved Result</h5></th>
+                <th class="col-md-2" scope="col"><h5 class="text-center">Actions</h5></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="row">
+                <td class="col-md-4" scope="col"><h5 class="text-center">f8b44d7c-e173-4bc7-990d-7b85dbd2ded0</h5></td>
+                <td class="col-md-3" scope="col"><h5 class="text-center">John Doe</h5></td>
+                <td class="col-md-3" scope="col"><h2 class="text-center">100 / 100 (100 %)</h2></td>
+                <td class="col-md-2 d-flex justify-content-around" scope="col">
+                    <a href="/submissions/details/f8b44d7c-e173-4bc7-990d-7b85dbd2ded0" class="btn bg-judge text-white font-weight-bold pt-2"><h4>Details</h4></a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <hr class="hr-2 bg-judge">
+    </main>
+    <footer th:replace="fragments/commons::footer"></footer>
+</div>
+</body>
+</html>

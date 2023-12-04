@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/commons::head"></head>
+<body>
+<div class="container-fluid">
+    <header th:replace="fragments/commons::navigation"></header>
+    <main class="mt-3">
+        <h1 class="text-judge text-center font-weight-bold">Create Problem</h1>
+        <hr class="hr-2 bg-judge w-25">
+        <form action="/problems/create" method="POST" th:object="${problemAddBindingModel}"
+              id="create-problem-form" class="form w-25 mx-auto">
+            <div class="form-group">
+                <div class="d-flex justify-content-center">
+                    <label for="name" class="text-judge font-weight-bold">Name</label>
+                </div>
+                <input th:field="*{name}" th:errorclass="'is-invalid bg-danger'"
+                       type="text" class="form-control" id="name" placeholder="Name..." name="name">
+            </div>
+            <div class="form-group">
+                <div class="d-flex justify-content-center">
+                    <label for="total-points" class="text-judge font-weight-bold">Total Points</label>
+                </div>
+                <input th:field="*{points}" th:errorclass="'is-invalid bg-danger'"
+                       type="number" class="form-control" id="total-points" placeholder="Total Points..." name="total-points">
+            </div>
+            <hr class="hr-2 bg-judge"/>
+            <div id="button-holder" class="d-flex justify-content-center">
+                <button class="btn btn-judge">Create</button>
+            </div>
+            <hr class="hr-2 bg-judge"/>
+        </form>
+    </main>
+    <footer th:replace="fragments/commons::footer"></footer>
+</div>
+</body>
+</html>

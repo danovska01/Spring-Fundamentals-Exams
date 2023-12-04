@@ -1,23 +1,28 @@
-package project.hero.model.entity;
+package dictionary.model.service;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import dictionary.model.entity.Word;
 
-@Entity
-@Table(name = "users")
-public class User extends BaseEntity {
-    @Column(unique = true, nullable = false)
+import java.util.Set;
+
+public class UserServiceModel {
+
+    private String id;
     private String username;
-    @Column(nullable = false)
     private String password;
-    @Column(unique = true, nullable = false)
     private String email;
+    private Set<Word> addedWords;
 
-    private String country;
+
+    public UserServiceModel() {
+    }
 
 
-    public User() {
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
 
@@ -46,11 +51,11 @@ public class User extends BaseEntity {
         this.email = email;
     }
 
-    public String getCountry() {
-        return country;
+    public Set<Word> getAddedWords() {
+        return addedWords;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setAddedWords(Set<Word> addedWords) {
+        this.addedWords = addedWords;
     }
 }

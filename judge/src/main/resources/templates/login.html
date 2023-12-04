@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/commons::head"></head>
+<body>
+<div class="container-fluid">
+    <header th:replace="fragments/commons::navigation"></header>
+    <main class="mt-3">
+        <h1 class="text-judge text-center font-weight-bold">Login</h1>
+        <hr class="hr-2 bg-judge w-25">
+        <form  action="/users/login" method="POST" th:object="${userLoginBindingModel}"
+               id="login-form" class="form w-25 mx-auto">
+            <div class="form-group">
+                <div class="d-flex justify-content-center">
+                    <label for="username" class="text-judge font-weight-bold">Username</label>
+                </div>
+                <input th:field="*{username}" th:errorclass="'is-invalid bg-danger'"
+                       type="text" class="form-control" id="username" placeholder="Username..." name="username">
+            </div>
+            <div class="form-group">
+                <div class="d-flex justify-content-center">
+                    <label for="password" class="text-judge font-weight-bold">Password</label>
+                </div>
+                <input th:field="*{password}" th:errorclass="'is-invalid bg-danger'"
+                       type="password" class="form-control" id="password" placeholder="Password..." name="password">
+            </div>
+            <hr class="hr-2 bg-judge"/>
+            <div id="button-holder" class="d-flex justify-content-center">
+                <button class="btn btn-judge">Login</button>
+            </div>
+            <hr class="hr-2 bg-judge"/>
+        </form>
+    </main>
+    <footer th:replace="fragments/commons::footer"></footer>
+</div>
+</body>
+</html>

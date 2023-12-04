@@ -1,4 +1,4 @@
-package project.hero.model.entity;
+package project.model.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -7,14 +7,12 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "users")
 public class User extends BaseEntity {
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false, unique = true)
     private String username;
     @Column(nullable = false)
     private String password;
-    @Column(unique = true, nullable = false)
+    @Column(nullable = false, unique = true)
     private String email;
-
-    private String country;
 
 
     public User() {
@@ -44,13 +42,5 @@ public class User extends BaseEntity {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getCountry() {
-        return country;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
     }
 }
